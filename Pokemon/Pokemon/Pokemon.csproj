@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{742C2C1C-5C15-4888-99EC-7BE88A234E04}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pokemon</RootNamespace>
+    <AssemblyName>Pokemon</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BaseNotificationClass.cs" />
+    <Compile Include="CaptureWindow.xaml.cs">
+      <DependentUpon>CaptureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Factory\WorldFactory.cs" />
+    <Compile Include="GymBattleWindow.xaml.cs">
+      <DependentUpon>GymBattleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Grid.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\World.cs" />
+    <Compile Include="ViewModel\GameSession.cs" />
+    <Page Include="CaptureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="GymBattleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BgMusic\BGMPlayer.cs" />
+    <Compile Include="Library\Skill.cs" />
+    <Compile Include="Library\PokemonLibrary\Pidgey.cs" />
+    <Compile Include="Library\PokemonLibrary\Squirtle.cs" />
+    <Compile Include="Library\PokemonLibrary\Bulbasaur.cs" />
+    <Compile Include="Library\PokemonLibrary\Charmander.cs" />
+    <Compile Include="Library\PokemonLibrary\Pikachu.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ManageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\PokemonFactory.cs" />
+    <Compile Include="ManageWindow.xaml.cs">
+      <DependentUpon>ManageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PokemonModel.cs" />
+    <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="PlayerCreation.xaml.cs">
+      <DependentUpon>PlayerCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="bin\Release\Pokemon.exe.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BgMusic\gymBattle\gymBattle.mp3" />
+    <Content Include="BgMusic\main\main1.mp3" />
+    <Content Include="BgMusic\main\main2.mp3" />
+    <Content Include="BgMusic\misc\failedCatch.mp3" />
+    <Content Include="BgMusic\misc\gymLose.mp3" />
+    <Content Include="BgMusic\misc\gymVictory.mp3" />
+    <Content Include="BgMusic\misc\hit.mp3" />
+    <Content Include="BgMusic\misc\successfulCatch.mp3" />
+    <Content Include="BgMusic\misc\superHit.mp3" />
+    <Content Include="BgMusic\misc\titleScreen.mp3" />
+    <Content Include="bin\Release\Pokemon.exe" />
+    <Content Include="bin\Release\Pokemon.pdb" />
+    <Resource Include="Images\Location\GymBattle\gymBattle03_02.png" />
+    <Resource Include="Images\Location\GymBattle\gymBattle03_01.png" />
+    <Resource Include="Images\PokemonImages\Wartortle.png" />
+    <Resource Include="Images\PokemonImages\Vanusaur.png" />
+    <Resource Include="Images\PokemonImages\Raichu.png" />
+    <Resource Include="Images\PokemonImages\Blastoise.png" />
+    <Resource Include="Images\PokemonImages\Charizard.png" />
+    <Resource Include="Images\PokemonImages\Pidgeotto.png" />
+    <Resource Include="Images\PokemonImages\Pidgeot.png" />
+    <Resource Include="Images\PokemonImages\Ivysaur.png" />
+    <Resource Include="Images\PokemonImages\Charmeleon.png" />
+    <Resource Include="Images\Buttons\musicMute.png" />
+    <Resource Include="Images\Buttons\musicPlay.png" />
+    <Resource Include="Images\Location\GymBattle\gymBattle01_01.png" />
+    <Resource Include="Images\Location\GymBattle\gymBattle01_02.png" />
+    <Resource Include="Images\Location\GymBattle\gymBattle02_01.png" />
+    <Resource Include="Images\Location\GymBattle\gymBattle02_02.png" />
+    <Resource Include="Images\Location\rpgTile000.png" />
+    <Resource Include="Images\Location\rpgTile001.png" />
+    <Resource Include="Images\Location\rpgTile002.png" />
+    <Resource Include="Images\Location\rpgTile003.png" />
+    <Resource Include="Images\Location\rpgTile004.png" />
+    <Resource Include="Images\Location\rpgTile005.png" />
+    <Resource Include="Images\Location\rpgTile006.png" />
+    <Resource Include="Images\Location\rpgTile007.png" />
+    <Resource Include="Images\Location\rpgTile008.png" />
+    <Resource Include="Images\Location\rpgTile009.png" />
+    <Resource Include="Images\Location\rpgTile010.png" />
+    <Resource Include="Images\Location\rpgTile011.png" />
+    <Resource Include="Images\Location\rpgTile012.png" />
+    <Resource Include="Images\Location\rpgTile013.png" />
+    <Resource Include="Images\Location\rpgTile014.png" />
+    <Resource Include="Images\Location\rpgTile015.png" />
+    <Resource Include="Images\Location\rpgTile016.png" />
+    <Resource Include="Images\Location\rpgTile017.png" />
+    <Resource Include="Images\Location\rpgTile018.png" />
+    <Resource Include="Images\Location\rpgTile019.png" />
+    <Resource Include="Images\Location\rpgTile020.png" />
+    <Resource Include="Images\Location\rpgTile021.png" />
+    <Resource Include="Images\Location\rpgTile022.png" />
+    <Resource Include="Images\Location\rpgTile023.png" />
+    <Resource Include="Images\Location\rpgTile024.png" />
+    <Resource Include="Images\Location\rpgTile025.png" />
+    <Resource Include="Images\Location\rpgTile026.png" />
+    <Resource Include="Images\Location\rpgTile027.png" />
+    <Resource Include="Images\Location\rpgTile028.png" />
+    <Resource Include="Images\Location\rpgTile029.png" />
+    <Resource Include="Images\Location\rpgTile030.png" />
+    <Resource Include="Images\Location\rpgTile031.png" />
+    <Resource Include="Images\Location\rpgTile032.png" />
+    <Resource Include="Images\Location\rpgTile033.png" />
+    <Resource Include="Images\Location\rpgTile034.png" />
+    <Resource Include="Images\Location\rpgTile035.png" />
+    <Resource Include="Images\Location\rpgTile036.png" />
+    <Resource Include="Images\Location\rpgTile037.png" />
+    <Resource Include="Images\Location\rpgTile038.png" />
+    <Resource Include="Images\Location\rpgTile039.png" />
+    <Resource Include="Images\Location\rpgTile040.png" />
+    <Resource Include="Images\Location\rpgTile041.png" />
+    <Resource Include="Images\Location\rpgTile042.png" />
+    <Resource Include="Images\Location\rpgTile043.png" />
+    <Resource Include="Images\Location\rpgTile044.png" />
+    <Resource Include="Images\Location\rpgTile045.png" />
+    <Resource Include="Images\Location\rpgTile046.png" />
+    <Resource Include="Images\Location\rpgTile047.png" />
+    <Resource Include="Images\Location\rpgTile048.png" />
+    <Resource Include="Images\Location\rpgTile049.png" />
+    <Resource Include="Images\Location\rpgTile050.png" />
+    <Resource Include="Images\Location\rpgTile051.png" />
+    <Resource Include="Images\Location\rpgTile052.png" />
+    <Resource Include="Images\Location\rpgTile053.png" />
+    <Resource Include="Images\Location\rpgTile054.png" />
+    <Resource Include="Images\Location\rpgTile055.png" />
+    <Resource Include="Images\Location\rpgTile056.png" />
+    <Resource Include="Images\Location\rpgTile057.png" />
+    <Resource Include="Images\Location\rpgTile058.png" />
+    <Resource Include="Images\Location\rpgTile059.png" />
+    <Resource Include="Images\Location\rpgTile060.png" />
+    <Resource Include="Images\Location\rpgTile061.png" />
+    <Resource Include="Images\Location\rpgTile062.png" />
+    <Resource Include="Images\Location\rpgTile063.png" />
+    <Resource Include="Images\Location\rpgTile064.png" />
+    <Resource Include="Images\Location\rpgTile065.png" />
+    <Resource Include="Images\Location\rpgTile066.png" />
+    <Resource Include="Images\Location\rpgTile067.png" />
+    <Resource Include="Images\Location\rpgTile068.png" />
+    <Resource Include="Images\Location\rpgTile069.png" />
+    <Resource Include="Images\Location\rpgTile070.png" />
+    <Resource Include="Images\Location\rpgTile071.png" />
+    <Resource Include="Images\Location\rpgTile072.png" />
+    <Resource Include="Images\Location\rpgTile073.png" />
+    <Resource Include="Images\Location\rpgTile074.png" />
+    <Resource Include="Images\Location\rpgTile075.png" />
+    <Resource Include="Images\Location\rpgTile076.png" />
+    <Resource Include="Images\Location\rpgTile077.png" />
+    <Resource Include="Images\Location\rpgTile078.png" />
+    <Resource Include="Images\Location\rpgTile079.png" />
+    <Resource Include="Images\Location\rpgTile080.png" />
+    <Resource Include="Images\Location\rpgTile081.png" />
+    <Resource Include="Images\Location\rpgTile082.png" />
+    <Resource Include="Images\Location\rpgTile083.png" />
+    <Resource Include="Images\Location\rpgTile084.png" />
+    <Resource Include="Images\Location\rpgTile085.png" />
+    <Resource Include="Images\Location\rpgTile086.png" />
+    <Resource Include="Images\Location\rpgTile087.png" />
+    <Resource Include="Images\Location\rpgTile088.png" />
+    <Resource Include="Images\Location\rpgTile089.png" />
+    <Resource Include="Images\Location\rpgTile090.png" />
+    <Resource Include="Images\Location\rpgTile091.png" />
+    <Resource Include="Images\Location\rpgTile092.png" />
+    <Resource Include="Images\Location\rpgTile093.png" />
+    <Resource Include="Images\Location\rpgTile094.png" />
+    <Resource Include="Images\Location\rpgTile095.png" />
+    <Resource Include="Images\Location\rpgTile096.png" />
+    <Resource Include="Images\Location\rpgTile097.png" />
+    <Resource Include="Images\Location\rpgTile098.png" />
+    <Resource Include="Images\Location\rpgTile099.png" />
+    <Resource Include="Images\Location\rpgTile100.png" />
+    <Resource Include="Images\Location\rpgTile101.png" />
+    <Resource Include="Images\Location\rpgTile102.png" />
+    <Resource Include="Images\Location\rpgTile103.png" />
+    <Resource Include="Images\Location\rpgTile104.png" />
+    <Resource Include="Images\Location\rpgTile105.png" />
+    <Resource Include="Images\Location\rpgTile106.png" />
+    <Resource Include="Images\Location\rpgTile107.png" />
+    <Resource Include="Images\Location\rpgTile108.png" />
+    <Resource Include="Images\Location\rpgTile109.png" />
+    <Resource Include="Images\Location\rpgTile110.png" />
+    <Resource Include="Images\Location\rpgTile111.png" />
+    <Resource Include="Images\Location\rpgTile112.png" />
+    <Resource Include="Images\Location\rpgTile113.png" />
+    <Resource Include="Images\Location\rpgTile114.png" />
+    <Resource Include="Images\Location\rpgTile115.png" />
+    <Resource Include="Images\Location\rpgTile116.png" />
+    <Resource Include="Images\Location\rpgTile117.png" />
+    <Resource Include="Images\Location\rpgTile118.png" />
+    <Resource Include="Images\Location\rpgTile119.png" />
+    <Resource Include="Images\Location\rpgTile120.png" />
+    <Resource Include="Images\Location\rpgTile121.png" />
+    <Resource Include="Images\Location\rpgTile122.png" />
+    <Resource Include="Images\Location\rpgTile123.png" />
+    <Resource Include="Images\Location\rpgTile124.png" />
+    <Resource Include="Images\Location\rpgTile125.png" />
+    <Resource Include="Images\Location\rpgTile126.png" />
+    <Resource Include="Images\Location\rpgTile127.png" />
+    <Resource Include="Images\Location\rpgTile128.png" />
+    <Resource Include="Images\Location\rpgTile129.png" />
+    <Resource Include="Images\Location\rpgTile130.png" />
+    <Resource Include="Images\Location\rpgTile131.png" />
+    <Resource Include="Images\Location\rpgTile132.png" />
+    <Resource Include="Images\Location\rpgTile133.png" />
+    <Resource Include="Images\Location\rpgTile134.png" />
+    <Resource Include="Images\Location\rpgTile135.png" />
+    <Resource Include="Images\Location\rpgTile136.png" />
+    <Resource Include="Images\Location\rpgTile137.png" />
+    <Resource Include="Images\Location\rpgTile138.png" />
+    <Resource Include="Images\Location\rpgTile139.png" />
+    <Resource Include="Images\Location\rpgTile140.png" />
+    <Resource Include="Images\Location\rpgTile141.png" />
+    <Resource Include="Images\Location\rpgTile142.png" />
+    <Resource Include="Images\Location\rpgTile143.png" />
+    <Resource Include="Images\Location\rpgTile144.png" />
+    <Resource Include="Images\Location\rpgTile145.png" />
+    <Resource Include="Images\Location\rpgTile146.png" />
+    <Resource Include="Images\Location\rpgTile147.png" />
+    <Resource Include="Images\Location\rpgTile148.png" />
+    <Resource Include="Images\Location\rpgTile149.png" />
+    <Resource Include="Images\Location\rpgTile150.png" />
+    <Resource Include="Images\Location\rpgTile151.png" />
+    <Resource Include="Images\Location\rpgTile152.png" />
+    <Resource Include="Images\Location\rpgTile153.png" />
+    <Resource Include="Images\Location\rpgTile154.png" />
+    <Resource Include="Images\Location\rpgTile155.png" />
+    <Resource Include="Images\Location\rpgTile156.png" />
+    <Resource Include="Images\Location\rpgTile157.png" />
+    <Resource Include="Images\Location\rpgTile158.png" />
+    <Resource Include="Images\Location\rpgTile159.png" />
+    <Resource Include="Images\Location\rpgTile160.png" />
+    <Resource Include="Images\Location\rpgTile161.png" />
+    <Resource Include="Images\Location\rpgTile162.png" />
+    <Resource Include="Images\Location\rpgTile163.png" />
+    <Resource Include="Images\Location\rpgTile164.png" />
+    <Resource Include="Images\Location\rpgTile165.png" />
+    <Resource Include="Images\Location\rpgTile166.png" />
+    <Resource Include="Images\Location\rpgTile167.png" />
+    <Resource Include="Images\Location\rpgTile168.png" />
+    <Resource Include="Images\Location\rpgTile169.png" />
+    <Resource Include="Images\Location\rpgTile170.png" />
+    <Resource Include="Images\Location\rpgTile171.png" />
+    <Resource Include="Images\Location\rpgTile172.png" />
+    <Resource Include="Images\Location\rpgTile173.png" />
+    <Resource Include="Images\Location\rpgTile174.png" />
+    <Resource Include="Images\Location\rpgTile175.png" />
+    <Resource Include="Images\Location\rpgTile176.png" />
+    <Resource Include="Images\Location\rpgTile177.png" />
+    <Resource Include="Images\Location\rpgTile178.png" />
+    <Resource Include="Images\Location\rpgTile179.png" />
+    <Resource Include="Images\Location\rpgTile180.png" />
+    <Resource Include="Images\Location\rpgTile181.png" />
+    <Resource Include="Images\Location\rpgTile182.png" />
+    <Resource Include="Images\Location\rpgTile183.png" />
+    <Resource Include="Images\Location\rpgTile184.png" />
+    <Resource Include="Images\Location\rpgTile185.png" />
+    <Resource Include="Images\Location\rpgTile186.png" />
+    <Resource Include="Images\Location\rpgTile187.png" />
+    <Resource Include="Images\Location\rpgTile188.png" />
+    <Resource Include="Images\Location\rpgTile189.png" />
+    <Resource Include="Images\Location\rpgTile190.png" />
+    <Resource Include="Images\Location\rpgTile191.png" />
+    <Resource Include="Images\Location\rpgTile192.png" />
+    <Resource Include="Images\Location\rpgTile193.png" />
+    <Resource Include="Images\Location\rpgTile194.png" />
+    <Resource Include="Images\Location\rpgTile195.png" />
+    <Resource Include="Images\Location\rpgTile196.png" />
+    <Resource Include="Images\Location\rpgTile197.png" />
+    <Resource Include="Images\Location\rpgTile198.png" />
+    <Resource Include="Images\Location\rpgTile199.png" />
+    <Resource Include="Images\Location\rpgTile200.png" />
+    <Resource Include="Images\Location\rpgTile201.png" />
+    <Resource Include="Images\Location\rpgTile202.png" />
+    <Resource Include="Images\Location\rpgTile203.png" />
+    <Resource Include="Images\Location\rpgTile204.png" />
+    <Resource Include="Images\Location\rpgTile205.png" />
+    <Resource Include="Images\Location\rpgTile206.png" />
+    <Resource Include="Images\Location\rpgTile207.png" />
+    <Resource Include="Images\Location\rpgTile208.png" />
+    <Resource Include="Images\Location\rpgTile209.png" />
+    <Resource Include="Images\Location\rpgTile210.png" />
+    <Resource Include="Images\Location\rpgTile211.png" />
+    <Resource Include="Images\Location\rpgTile212.png" />
+    <Resource Include="Images\Location\rpgTile213.png" />
+    <Resource Include="Images\Location\rpgTile214.png" />
+    <Resource Include="Images\Location\rpgTile215.png" />
+    <Resource Include="Images\Location\rpgTile216.png" />
+    <Resource Include="Images\Location\rpgTile217.png" />
+    <Resource Include="Images\Location\rpgTile218.png" />
+    <Resource Include="Images\Location\rpgTile219.png" />
+    <Resource Include="Images\Location\rpgTile220.png" />
+    <Resource Include="Images\Location\rpgTile221.png" />
+    <Resource Include="Images\Location\rpgTile222.png" />
+    <Resource Include="Images\Location\rpgTile223.png" />
+    <Resource Include="Images\Location\rpgTile224.png" />
+    <Resource Include="Images\Location\rpgTile225.png" />
+    <Resource Include="Images\Location\rpgTile226.png" />
+    <Resource Include="Images\Location\rpgTile227.png" />
+    <Resource Include="Images\Location\rpgTile228.png" />
+    <Resource Include="Images\Location\Trader\trader01_01.png" />
+    <Resource Include="Images\Location\Trader\trader01_02.png" />
+    <Resource Include="Images\Player\ash_back.png" />
+    <Resource Include="Images\Player\ash_front.png" />
+    <Resource Include="Images\Player\ash_left.png" />
+    <Resource Include="Images\Player\ash_right.png" />
+    <Resource Include="Images\PokemonImages\Bulbasaur.png" />
+    <Resource Include="Images\PokemonImages\Charmander.png" />
+    <Resource Include="Images\PokemonImages\Pidgey.png" />
+    <Resource Include="Images\PokemonImages\Pikachu.png" />
+    <Resource Include="Images\PokemonImages\Squirtle.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
